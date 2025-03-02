@@ -19,7 +19,7 @@ export default function InvoiceEdit() {
             : invoiceObj
         )
       );
-      navigate("/invoices");
+      navigate(`/invoices/${invoice?.id}`);
     }
   };
   return (

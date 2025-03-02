@@ -12,7 +12,7 @@ export default function Invoice() {
     setInvoices((prevInvoices) =>
       prevInvoices.filter((invoiceObj) => invoiceObj.id !== invoice?.id)
     );
-    navigate("/invoices")
+    navigate("/invoices/")
   };
 
   return (
