@@ -1,14 +1,19 @@
 import { Link } from "react-router-dom";
 import useGetInvoice from "../costumHooks/useGetInvoice";
-
-
+import { useInvoice } from "../contexts/InvoiceContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Invoice() {
   const invoice = useGetInvoice();
- 
+  const { setInvoices } = useInvoice();
+  const navigate = useNavigate()
 
-
-
+  const handleDelete = () => {
+    setInvoices((prevInvoices) =>
+      prevInvoices.filter((invoiceObj) => invoiceObj.id !== invoice?.id)
+    );
+    navigate("/invoices")
+  };
 
   return (
     <div key={invoice?.id}>
@@ -26,7 +31,7 @@ export default function Invoice() {
         );
       })}
       <Link to={`/invoices/${invoice?.id}/edit`}>Edit</Link>
-   
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 }
