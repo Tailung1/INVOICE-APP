@@ -6,12 +6,17 @@ import InvoiceProvider from "./context/invocieContext";
 
 
 import Invoice from "./pages/Invoice";
+import Invoices from "./pages/Invoices";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Invoice />,
-  },
+    element: <Invoices />,
+  },{
+    path:"/invoices/:id",
+    element:<Invoice/>
+  }
+  
 ]);
 
 
