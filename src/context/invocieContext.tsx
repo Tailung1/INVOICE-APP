@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { ReactNode, createContext, useState } from "react";
 import data from "../data/invoices.json";
 
 interface IInvoiceContext {
@@ -11,14 +11,14 @@ const invoiceContext = createContext<IInvoiceContext>({
   setInvoices: () => {},
 });
 
-export default function invoiceProvider() {
+export default function InvoiceProvider({ children }: { children: ReactNode }) {
   const [invoices, setInvoices] = useState<TInvoices>(data);
 
   return (
     <div>
       <invoiceContext.Provider
         value={{ invoices, setInvoices }}
-      ></invoiceContext.Provider>
+      >{children}</invoiceContext.Provider>
     </div>
   );
 }
