@@ -9,8 +9,9 @@ export default function InvoiceEdit() {
   const invoice = useGetInvoice();
   const clientInput = useRef<HTMLInputElement>(null);
   const handleEdit = () => {
-    if (clientInput.current?.value) {
-      event?.preventDefault();
+    event?.preventDefault();
+    if (clientInput.current?.value !== invoice?.client) {
+
       setInvoices((prevInvoice) =>
         prevInvoice.map((itemObj) =>
           itemObj.id === invoice?.id
@@ -22,6 +23,7 @@ export default function InvoiceEdit() {
             : itemObj
         )
       );
+      navigate(`/invoices/${invoice?.id}`);
     }
   };
 
@@ -31,6 +33,7 @@ export default function InvoiceEdit() {
       setInvoices((prevInvoices) =>
         prevInvoices.filter((invoiceObj) => invoiceObj.id !== id)
       );
+    navigate("/");
   };
 
   return (
@@ -44,18 +47,8 @@ export default function InvoiceEdit() {
             <input defaultValue={item.price} readOnly />
           </div>
         ))}
-        <button
-          onClick={() => navigate(`/invoices/${invoice?.id}`)}
-          type='submit'
-        >
-          Edit
-        </button>
-        <button
-          onClick={() => {
-            handleDelete(invoice?.id);
-            navigate("/");
-          }}
-        >
+        <button type='submit'>Edit</button>
+        <button onClick={() => {handleDelete(invoice?.id);navigate("/invoices")}}>
           Delete
         </button>
       </form>
