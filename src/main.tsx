@@ -7,16 +7,21 @@ import InvoiceProvider from "./context/invocieContext";
 
 import Invoice from "./pages/Invoice";
 import Invoices from "./pages/Invoices";
+import InvoiceEdit from "./pages/InvoiceEdit";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Invoices />,
-  },{
-    path:"/invoices/:id",
-    element:<Invoice/>
-  }
-  
+  },
+  {
+    path: "/invoices/:id",
+    element: <Invoice />,
+  },
+  {
+    path: "/invoices/:id/InvoiceEdit",
+    element:<InvoiceEdit />
+  },
 ]);
 
 

@@ -1,4 +1,6 @@
 import useGetInvoice from "../customHooks/useGetInvoice";
+import { Link
+ } from "react-router-dom";
 
 export default function Invoice() {
   const invoice = useGetInvoice();
@@ -14,6 +16,7 @@ export default function Invoice() {
           <h3>{item.price}</h3>
         </div>
       ))}
+     <Link to={`/invoices/${invoice?.id}/invoiceEdit`}>Edit</Link>
     </div>
   );
 }
