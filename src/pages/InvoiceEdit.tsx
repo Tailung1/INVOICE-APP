@@ -1,8 +1,10 @@
 import { useRef } from "react";
 import { useInvoice } from "../context/invocieContext";
 import useGetInvoice from "../customHooks/useGetInvoice";
+import { useNavigate } from "react-router-dom";
 
 export default function InvoiceEdit() {
+    const navigate=useNavigate()
   const { setInvoices } = useInvoice();
   const invoice = useGetInvoice();
   const clientInput = useRef<HTMLInputElement>(null);
@@ -35,7 +37,12 @@ export default function InvoiceEdit() {
             <input defaultValue={item.price} readOnly />
           </div>
         ))}
-        <button type='submit'>Edit</button>
+        <button
+          onClick={() => navigate(`/invoices/${invoice?.id}`)}
+          type='submit'
+        >
+          Edit
+        </button>
       </form>
     </div>
   );
