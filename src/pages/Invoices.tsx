@@ -1,4 +1,4 @@
-import { useInvoice } from "../context/invocieContext"
+import { useInvoice } from "../context/invocieContext";
 import { Link } from "react-router-dom";
 export default function Invoices() {
   const { invoices } = useInvoice();
@@ -10,14 +10,14 @@ export default function Invoices() {
         gap: "20px",
       }}
     >
-      {invoices.map((invoice:IInvoice) => {
+      {invoices.map((invoice: IInvoice) => {
         return (
           <div
             key={invoice.id}
             style={{ border: "2px solid red", padding: "10px" }}
           >
             <h2>{invoice.client}</h2>
-            {invoice.items.map((item:IItem, index:number) => {
+            {invoice.items.map((item: IItem, index: number) => {
               return (
                 <div key={item.description}>
                   <h3 style={{ textDecoration: "underline" }}>

@@ -11,7 +11,6 @@ export default function InvoiceEdit() {
   const handleEdit = () => {
     event?.preventDefault();
     if (clientInput.current?.value !== invoice?.client) {
-
       setInvoices((prevInvoice) =>
         prevInvoice.map((itemObj) =>
           itemObj.id === invoice?.id
@@ -48,7 +47,12 @@ export default function InvoiceEdit() {
           </div>
         ))}
         <button type='submit'>Edit</button>
-        <button onClick={() => {handleDelete(invoice?.id);navigate("/invoices")}}>
+        <button
+          onClick={() => {
+            handleDelete(invoice?.id);
+            navigate("/invoices");
+          }}
+        >
           Delete
         </button>
       </form>
