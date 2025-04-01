@@ -9,9 +9,9 @@ export default function Invoice() {
       <h1>{invoice?.client}</h1>
       {invoice?.items.map((item: IItem, index: number) => (
         <div key={item.description}>
-          <h2 style={{ color: "red" }}>Item {index + 1} </h2>
-          <h3>{item.description}</h3>
-          <h3>{item.quantity}</h3>
+          <h1 style={{ color: "red" }}>Item {index + 1} </h1>
+          <h2>{item.description}</h2>
+          <h2>{item.quantity}</h2>
           <h3>{item.price}</h3>
         </div>
       ))}
