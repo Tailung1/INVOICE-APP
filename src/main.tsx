@@ -1,9 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter,RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import InvoiceProvider from "./context/invocieContext";
-
 
 import Invoice from "./pages/Invoice";
 import Invoices from "./pages/Invoices";
@@ -20,17 +22,14 @@ const router = createBrowserRouter([
   },
   {
     path: "/invoices/:id/InvoiceEdit",
-    element:<InvoiceEdit />
+    element: <InvoiceEdit />,
   },
 ]);
-
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <InvoiceProvider>
-        <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </InvoiceProvider>
-    
-
   </StrictMode>
 );
